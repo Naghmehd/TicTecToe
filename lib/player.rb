@@ -7,12 +7,4 @@ class Player
   #   @name = gets.chomp
   # end
 
-  def player
-    player_choice == X
-  end
-
-  def computer
-    computer_choice == O
-  end
-  
 end
