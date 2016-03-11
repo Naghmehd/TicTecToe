@@ -3,7 +3,6 @@ class Board
 
   def initialize
     @board = Array.new(9) { "" }
-
   end
 
   def display_board
@@ -42,7 +41,6 @@ class Board
       if @board[winning_moves[0] - 1] == "X" &&
          @board[winning_moves[1] - 1] == "X" &&
          @board[winning_moves[2] - 1] == "X"
-         
          puts "Player Winner!"
          exit
       end
@@ -73,5 +71,4 @@ class Board
       return true
     end
   end
-
 end
