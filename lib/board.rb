@@ -29,9 +29,9 @@ class Board
 
   def current_board
     puts  " #{@board[0]} | #{@board[1]} | #{@board[2]} ",
-          "---------------------------------------------",
+          "-----------",
           " #{@board[3]} | #{@board[4]} | #{@board[5]}  ",
-          "---------------------------------------------",
+          "-----------",
           " #{@board[6]} | #{@board[7]} | #{@board[8]}  "
     print "\n", "\n"
   end
@@ -41,15 +41,17 @@ class Board
       if @board[winning_moves[0] - 1] == "X" &&
          @board[winning_moves[1] - 1] == "X" &&
          @board[winning_moves[2] - 1] == "X"
-         puts "Player Winner!"
+         print current_board
+         puts "Congratulations, Player is the Winner!"
          exit
       end
 
       if @board[winning_moves[0] - 1] == "O" &&
          @board[winning_moves[1] - 1] == "O" &&
          @board[winning_moves[2] - 1] == "O"
-         puts "Computer Winner!"
-         exit
+         print current_board
+         puts "Congratulations, Computer is the Winner!"
+         clear_screen
       end
     end
   end
@@ -71,4 +73,17 @@ class Board
       return true
     end
   end
+
+  def clear_screen
+    puts "\n" * 100
+    while true
+      clear_screen
+      puts "Do you want to play again? (y/n) "
+      if ["no", "n"].include? (gets.chomp.downcase)
+        puts "Goodbye!!"
+        break
+      end
+    end
+  end
+
 end

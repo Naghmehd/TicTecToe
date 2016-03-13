@@ -14,7 +14,7 @@ class Game
     loop do
       puts @board.display_board
       puts @board.current_board
-      puts "Pick a number for your move"
+      puts "Pick a number for your move #{@name} "
       @board.board[player_move] = "X" #store player to move
 
       if @board.tie # Check if the game is tied and there are no more spaces
@@ -33,11 +33,12 @@ class Game
     if @board.board[choice] == ""
       return choice
     else
-      puts "Pick a open space"
+      if choice > 8
+        puts "Choose from the board spaces #{@name} "
+      else
+        puts "Pick a open space"
+      end
       return player_move
-    end
-    if choice =! @board
-      puts "pick a number again for your move"
     end
   end
 
